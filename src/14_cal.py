@@ -22,3 +22,26 @@ and does the following:
 import sys
 import calendar
 from datetime import datetime
+
+x = input("Enter mm/yyyy: ")
+
+
+def cal():
+    global x
+    if x == "":
+        today = datetime.today()
+        print(f"{today.month}/{today.year} ")
+    if len(x) == 2 and int(x) >= 1 and int(x) <= 12:
+        year = datetime.now().year
+        print(calendar.month(year, int(x)))
+    if len(x) == 7 and x[2] == "/":
+        month = int(x[:2])
+        year = int(x[3:])
+
+        if month >= 1 and month <= 12:
+            print(calendar.month(year, month))
+    else:
+        print("Please enter a corect format. MM/YYYY")
+
+
+cal()
